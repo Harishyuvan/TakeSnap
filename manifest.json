@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "TakeSnap",
+  "version": "1.0.0",
+  "description": "Capture full-quality screenshots, review them, and choose to download.",
+  "permissions": ["activeTab", "tabs", "downloads", "storage"],
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png",
+    "256": "assets/icons/icon256.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "TakeSnap",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png"
+    }
+  }
+}
+

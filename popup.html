@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TakeSnap</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="hero">
+        <div class="logo-dot"></div>
+        <div>
+          <p class="eyebrow">TakeSnap</p>
+          <h1>Full-quality screen grabs in a click</h1>
+          <p class="subhead">Review the snap, then decide if you want to download.</p>
+        </div>
+      </header>
+
+      <main>
+        <section class="card">
+          <div class="controls">
+            <button id="capture" class="primary">Take Snap</button>
+            <button id="retake" class="ghost" disabled>Retake</button>
+          </div>
+          <div class="shape-bar">
+            <div>
+              <p class="label">Crop shape</p>
+              <p class="hint">Drag over the image, pick a shape, then apply.</p>
+            </div>
+            <div class="shape-buttons" id="shapeButtons">
+              <button class="ghost active" data-shape="rectangle" aria-pressed="true">Rectangle</button>
+              <button class="ghost" data-shape="square" aria-pressed="false">Square</button>
+              <button class="ghost" data-shape="circle" aria-pressed="false">Circle</button>
+              <button class="ghost" data-shape="triangle" aria-pressed="false">Triangle</button>
+            </div>
+          </div>
+          <div class="preview-wrap" id="previewWrap">
+            <div class="placeholder" id="placeholder">
+              <span>Nothing captured yet</span>
+              <small>Click “Take Snap” to grab your current tab.</small>
+            </div>
+            <div class="canvas-stack">
+              <canvas id="captureCanvas" aria-label="Screenshot preview"></canvas>
+              <canvas id="overlayCanvas" aria-label="Crop overlay"></canvas>
+            </div>
+          </div>
+          <div class="crop-actions">
+            <p class="hint" id="cropHint">Drag to create a crop selection.</p>
+            <div class="crop-buttons">
+              <button id="clearCrop" class="ghost" disabled>Clear Crop</button>
+              <button id="applyCrop" class="primary" disabled>Apply Crop</button>
+            </div>
+          </div>
+          <div class="mini-preview" id="miniPreview">
+            <p class="label">Cropped preview</p>
+            <p class="hint">Appears after you apply a crop.</p>
+            <img id="cropPreview" alt="Cropped preview" />
+          </div>
+          <div class="decision" id="decision">
+            <div>
+              <p class="label">Download this snap?</p>
+              <p class="hint">It will save locally and be remembered here.</p>
+            </div>
+            <div class="decision-actions">
+              <button id="decline" class="ghost">Not now</button>
+              <button id="download" class="primary">Download</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="historyCard">
+          <div class="history-header">
+            <div>
+              <p class="label">Last saved snap</p>
+              <p class="hint">Stored safely in extension storage.</p>
+            </div>
+            <span class="badge" id="historyBadge">Empty</span>
+          </div>
+          <div class="history-preview" id="historyPreview">
+            <p class="hint">No saved snaps yet.</p>
+          </div>
+        </section>
+      </main>
+
+      <p class="status" id="status" role="status"></p>
+    </div>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>
+
